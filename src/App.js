@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Stage, Layer, Circle } from 'react-konva';
+import Field from './components/Field'
 
 function App() {
     const IMAGE_HEIGHT = 1050;
@@ -41,11 +41,7 @@ function App() {
 
     return (
         <div className="App">
-            <Stage width={size.width} height={size.height} className="field-container">
-                <Layer>
-                    <Circle x={0.5 * size.width} y={0.5 * size.height} stroke="black" radius={50} />
-                </Layer>
-            </Stage>
+            <Field width={size.width} height={size.height}/>
         </div>
     );
 }
