@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import { Stage, Layer, Rect, Circle } from 'react-konva';
+import { Stage, Layer, Circle } from 'react-konva';
 
 function App() {
     const IMAGE_HEIGHT = 1050;
@@ -31,7 +31,6 @@ function App() {
         })
         setContainerRatio(windowDimension.height / windowDimension.width)
         setSize(findSize())
-        console.log(size);
     }
     useEffect(() => {
         window.addEventListener('resize', detectSize)
