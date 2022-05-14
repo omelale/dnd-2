@@ -4,6 +4,7 @@ import { Label, Text, Circle } from "react-konva";
 function Player(props) {
     const [x, setX] = useState(props.width * 0.5);
     const [y, setY] = useState(props.height * 0.5);
+    const PLAYER_SIZE = 0.067;
     const handleDragStart = () => {
 
     }
@@ -17,8 +18,6 @@ function Player(props) {
     const handleDragMove = (e) => {
         const currentX = e.evt.clientX;
         const currentY = e.evt.clientY;
-        console.log(e.target._lastPos.x);
-        
         if (currentX < 0 ){
             e.target.attrs.x = 20;
             e.target.attrs.y = e.target._lastPos.y;
@@ -35,9 +34,9 @@ function Player(props) {
         }
     }
     return (
-        <Label draggable x={x} y={y} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDragMove={handleDragMove}>
-            <Circle radius={50} width={30} height={30} fill="red" style={{border:'2px solid black'}} />
-            <Text draggable x={-10} y={20} text="tope" />
+        <Label draggable x={x} y={y} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDragMove={handleDragMove} onTouchMove={handleDragMove}>
+            <Circle radius={50} width={props.width * PLAYER_SIZE} height={props.height * PLAYER_SIZE} fill="red" style={{border:'2px solid black'}} />
+            <Text draggable x={-10} y={200 * PLAYER_SIZE} text="tope" />
         </Label>
     )
 }
