@@ -6,7 +6,6 @@ function Player(props) {
 
     }
     const handleDragEnd = (e) => {
-        console.log(e.target.x() < props.width * 0.5);
         if (e.target.x() <= props.width * 0.5){
             e.target.children[0].attrs.fill = 'white';
         } else {
