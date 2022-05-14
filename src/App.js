@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Field from './components/Field'
+import Field from './components/Field';
 
 function App() {
     const IMAGE_HEIGHT = 1050;
