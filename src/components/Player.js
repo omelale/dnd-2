@@ -11,8 +11,10 @@ function Player(props) {
     const handleDragEnd = (e) => {
         if (e.target.x() <= props.width * 0.5){
             e.target.children[0].attrs.fill = 'white';
+            e.target.children[1].attrs.fill='black';
         } else {
             e.target.children[0].attrs.fill = 'black';
+            e.target.children[1].attrs.fill = 'white';
         } 
     }
     const handleDragMove = (e) => {
@@ -35,8 +37,8 @@ function Player(props) {
     }
     return (
         <Label draggable x={x} y={y} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDragMove={handleDragMove} onTouchMove={handleDragMove}>
-            <Circle radius={50} width={props.width * PLAYER_SIZE} height={props.height * PLAYER_SIZE} fill="red" style={{border:'2px solid black'}} />
-            <Text draggable x={-10} y={200 * PLAYER_SIZE} text="tope" />
+            <Circle radius={50} width={props.width * PLAYER_SIZE} height={props.height * PLAYER_SIZE} fill="red"/>
+            <Text x={-10} y={200 * PLAYER_SIZE} text="tope" fill={x < props.width * 0.5 ? 'black' : 'white'} />
         </Label>
     )
 }
