@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import Field from './components/Field';
+import data from './constants/data'
 
 function App() {
     const IMAGE_HEIGHT = 1050;
@@ -32,6 +33,18 @@ function App() {
         setContainerRatio(windowDimension.height / windowDimension.width)
         setSize(findSize())
     }
+    const generateCoordinates = ()=>{
+        let x = Math.floor(Math.random() * size.width);
+        let y = Math.floor(Math.random() * size.height);
+        return{x: x, y: y}
+    }
+    const [players, setPlayers] = useState(data.players.map(player => {
+        let pl = player;
+        let coord=generateCoordinates();
+        pl.x = coord.x;
+        pl.y = coord.y;
+        return pl
+    })); 
     useEffect(() => {
         window.addEventListener('resize', detectSize)
         return () => {
@@ -41,7 +54,7 @@ function App() {
 
     return (
         <div className="App">
-            <Field width={size.width} height={size.height}/>
+            <Field width={size.width} height={size.height} players={players}/>
         </div>
     );
 }

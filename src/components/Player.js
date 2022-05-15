@@ -36,9 +36,9 @@ function Player(props) {
         }
     }
     return (
-        <Label draggable x={x} y={y} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDragMove={handleDragMove} onTouchMove={handleDragMove}>
+        <Label draggable x={props.player.x} y={props.player.y} onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDragMove={handleDragMove} onTouchMove={handleDragMove}>
             <Circle radius={50} width={props.width * PLAYER_SIZE} height={props.height * PLAYER_SIZE} fill="red"/>
-            <Text x={-10} y={200 * PLAYER_SIZE} text="tope" fill={x < props.width * 0.5 ? 'black' : 'white'} />
+            <Text x={-10} y={200 * PLAYER_SIZE} text={props.player.name} fill={x < props.width * 0.5 ? 'black' : 'white'} />
         </Label>
     )
 }
